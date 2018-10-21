@@ -52,21 +52,10 @@ public class Snake {
 
 				String answer = null;
 
-				if (DrawingSurface.flippedSet == 0) {
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + " in "
-									+ DrawingSurface.ss.getName() + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-							
-				} else {
-					// Do alternate popup
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-					
-				}
+				answer = (String) JOptionPane.showInputDialog(
+						DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
+						"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
+				
 				if (answer.equalsIgnoreCase(DrawingSurface.ss.getDefinitionAt(indexnum))) {
 					DrawingSurface.pausee(false);
 				} else {
@@ -104,7 +93,7 @@ public class Snake {
 			if (!isCandy) {
 				snake.remove(snake.size() - 1);
 
-			}   else {
+			}  else {
 				DrawingSurface.foodx = (int) (Math.random() * 15 + 1);
 				DrawingSurface.foody = (int) (Math.random() * 15 + 1);
 
@@ -113,29 +102,16 @@ public class Snake {
 
 				String answer = null;
 
-				if (DrawingSurface.flippedSet == 0) {
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + " in "
-									+ DrawingSurface.ss.getName() + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-							
-				} else {
-					// Do alternate popup
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-					
-				}
+				answer = (String) JOptionPane.showInputDialog(
+						DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
+						"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
+				
 				if (answer.equalsIgnoreCase(DrawingSurface.ss.getDefinitionAt(indexnum))) {
 					DrawingSurface.pausee(false);
 				} else {
 					DrawingSurface.lose(snake.size(), DrawingSurface.ss.getDefinitionAt(indexnum));
 				}
 
-				
-			
 				
 			}
 			snake.add(0, tempChecker);
@@ -176,21 +152,10 @@ public class Snake {
 
 				String answer = null;
 
-				if (DrawingSurface.flippedSet == 0) {
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + " in "
-									+ DrawingSurface.ss.getName() + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-							
-				} else {
-					// Do alternate popup
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-					
-				}
+				answer = (String) JOptionPane.showInputDialog(
+						DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
+						"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
+				
 				if (answer.equalsIgnoreCase(DrawingSurface.ss.getDefinitionAt(indexnum))) {
 					DrawingSurface.pausee(false);
 				} else {
@@ -236,21 +201,10 @@ public class Snake {
 
 				String answer = null;
 
-				if (DrawingSurface.flippedSet == 0) {
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + " in "
-									+ DrawingSurface.ss.getName() + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-							
-				} else {
-					// Do alternate popup
-					answer = (String) JOptionPane.showInputDialog(
-							DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
-							"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
-					
-					
-				}
+				answer = (String) JOptionPane.showInputDialog(
+						DrawingSurface.w, "What is " + DrawingSurface.ss.getTermAt(indexnum) + "?",
+						"Question", JOptionPane.PLAIN_MESSAGE, null, null, "");
+				
 				if (answer.equalsIgnoreCase(DrawingSurface.ss.getDefinitionAt(indexnum))) {
 					DrawingSurface.pausee(false);
 				} else {
