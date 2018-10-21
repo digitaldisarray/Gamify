@@ -49,7 +49,7 @@ public class DrawingSurface extends PApplet{
 		pushStyle();
 		fill(0,0,0);
 		textSize(20);
-		text("SNAKE", 200,25);
+		text("SNAKE - WASD", 200,25);
 		popStyle();
 
 		this.translate(50,50);

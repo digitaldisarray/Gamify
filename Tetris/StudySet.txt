@@ -1,0 +1,5 @@
+hablar:to speak
+bailar:to dance
+matar:to kill
+ayudar:to help
+acostumbrarse:to get accustomed to
