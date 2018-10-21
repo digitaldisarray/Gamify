@@ -48,6 +48,10 @@ public class StudySet {
 	public String getDefinitionAt(int index) {
 		return set.get(index).getDefinition();
 	}
+	
+	public void setStudySet(ArrayList<Term> newStudySet) {
+		set = newStudySet;
+	}
 
 	public String getTermAt(String definition) {
 		String term = "";

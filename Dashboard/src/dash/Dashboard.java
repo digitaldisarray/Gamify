@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
@@ -19,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -94,10 +96,35 @@ public class Dashboard {
 		comboBoxStudySet.setBounds(236, 86, 195, 24);
 		panel.add(comboBoxStudySet);
 
+		// Create a radio button group for the radio buttons
+		ButtonGroup rdbtnGroup = new ButtonGroup();
+
+		JRadioButton rdbtnTermPhrase = new JRadioButton("Term/Phrase");
+		rdbtnTermPhrase.setSelected(true);
+		rdbtnTermPhrase.setBounds(127, 145, 141, 23);
+		panel.add(rdbtnTermPhrase);
+
+		JRadioButton rdbtnTranslationDefinition = new JRadioButton("Translation/Definition");
+		rdbtnTranslationDefinition.setBounds(127, 164, 195, 23);
+		panel.add(rdbtnTranslationDefinition);
+
+		// Add radio buttons to the group
+		rdbtnGroup.add(rdbtnTermPhrase);
+		rdbtnGroup.add(rdbtnTranslationDefinition);
+		
+		JLabel lblQuizMeOn = new JLabel("Quiz Me On:");
+		lblQuizMeOn.setBounds(127, 130, 97, 15);
+		panel.add(lblQuizMeOn);
+		
 		JButton btnLaunch = new JButton("Launch");
 		btnLaunch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
+				
+				int launchMode = 1;
+				if(rdbtnTermPhrase.isSelected()) {
+					launchMode = 0;
+				}
+				
 				// Make sure a game and study set are chosen
 				if (comboBoxGames.getSelectedItem() == null || comboBoxStudySet.getSelectedItem() == null) {
 					JOptionPane.showMessageDialog(panel, "Make sure you select a game and study set.",
@@ -107,7 +134,7 @@ public class Dashboard {
 				// Launch a jar file with specified args
 				try {
 					Process proc = Runtime.getRuntime().exec("java -jar " + (String) (comboBoxGames.getSelectedItem())
-							+ ".jar " + (String) (comboBoxStudySet.getSelectedItem()) + ".txt");
+							+ ".jar " + (String) (comboBoxStudySet.getSelectedItem()) + ".txt " + launchMode);
 				} catch (IOException e) {
 					JOptionPane.showMessageDialog(panel, "Error launching game. See console for output.",
 							"Game Launch Error", JOptionPane.ERROR_MESSAGE);
@@ -117,7 +144,7 @@ public class Dashboard {
 		});
 		btnLaunch.setBounds(167, 211, 117, 25);
 		panel.add(btnLaunch);
-
+		
 		JPanel panel_Edit = new JPanel();
 		tabbedPane.addTab("Edit", null, panel_Edit, null);
 		panel_Edit.setLayout(null);
@@ -205,14 +232,14 @@ public class Dashboard {
 
 				// Reset the combo box for study sets
 				comboBoxStudySet.removeAll();
-				
+
 				// Get current directory
 				File path = new File(System.getProperty("user.dir"));
 				System.out.println("Path: " + path.getPath());
 
 				// Get txt file in directory
 				File[] txtFiles = FileUtils.filesEndingWith("txt", path);
-				
+
 				// Add the study set names
 				for (File studySet : txtFiles) {
 					comboBoxStudySet.addItem(studySet.getName().replace(".txt", ""));

@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -14,8 +16,27 @@ public class DrawingSurface extends PApplet{
 	private static boolean bool;
 	private static boolean paused;
 	
-	public DrawingSurface(String filename) {
+	public static int flippedSet;
+	
+	public DrawingSurface(String filename, int studySet) {
 		ss = new StudySet(filename);
+		
+		this.flippedSet = studySet;
+		
+		// Flip the words in the study set around if asked
+		if(studySet == 1) {
+			ArrayList<Term> terms = ss.getStudySet();
+			
+			String definition;
+			for(Term term : terms) {
+				definition = term.getDefinition();
+				term.setDefinition(term.getTerm());
+				term.setTerm(definition);
+			}
+			
+			ss.setStudySet(terms);
+		}
+		
 		snake = new Snake();
 		foodx = (int)(Math.random()*17);
 		foody = (int)(Math.random()*17);
