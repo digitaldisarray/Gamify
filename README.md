@@ -22,4 +22,4 @@ Creating Your Own Game:
 - [Me](https://github.com/digitaldisarray/): Dashboard
 - [Eylam](https://github.com/EylamTagor/): Match
 - [Brian](https://github.com/brianla0616): Tetris
-- Ayush: Snake
+- [Ayush](https://github.com/ayushsat): Snake
