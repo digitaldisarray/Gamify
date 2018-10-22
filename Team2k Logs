@@ -1,0 +1,199 @@
+(bad) ideas:
+1: Homework into an rpg
+- Gets assignments from school loop
+- Click done on the assignment to get xp or whatever
+- People have profiles on them
+
+2. Our version of quizlet
+
+3. Tetris clone
+- multiplayer
+- crazy colors
+- different game modes
+- hackable
+- open source
+- can edit look and feel of game through config file
+
+4. Custom client for school loop with chat rooms for each class
+- login page (enter name, student id, teachers, classes, grades)
+- optional to get grades and info from school loop account
+- each classroom has a chat room
+- general/global chat rooms
+- info pages for each class show things like average grades for different assignments
+Things to do if we have time:
+- Our own version of quizlet giving poitns to your account5
+
+5. Custom spanish learning tool
+- Live translator
+- Integrated web browser with spanish dict
+- Put computer on "lockdown" for specific ammount of time so students can't play games, talk to friends, watch youtube. Block specific domains. Customizable lockdown
+
+
+
+Final: quizlet games ex tetris in order to rotate blocks you have to answer questions
+snake eats translated word in time.
+
+https://github.com/EylamTagor/Gamify
+
+
+
+classes: term, studyset, account, main, game, dashboard,tetris, TetrisGamePiece, snake
+
+Main:
+main() {
+    instanciate the user interface
+}
+
+Game super class:
+game() {
+    start() {
+        Create a new jframe for the game to run in
+    }
+    
+    exit() {
+        go back to the main menu jframe thing
+    }
+}
+
+Example terms.txt:
+word:translatedWord\n
+word:translatedWord\n
+term:termDefinition\n
+term:termDefinition
+
+
+Kevin - Interface.jar
+- Show a list of available games
+- Let the user choose a txt file of terms to study
+- Run the games passing the text file to them
+- IF WE HAVE TIME Provide an editor for the tems.txt 
+
+Brian - Tetris.jar
+- String[] args will take a file name
+- Generate the game based on the passed text file
+
+Ayush - Snake.jar
+- String[] args will take a file name
+- Generate the game based on the passed text file
+
+Eylam - Study Set.java
+☺☻♥♦♣♠•◘○
+
+
+How the dashboard works:
+Kevin -> Interface.jar
+\/ runs jar and passes a file name *string* in String[] args
+Tetris.jar or Snake.jar
+
+\/ sends file name to Eylams method/function // Instantiate new StudySet from textFile and that will contain the HashMap shit
+
+\/ returns a HashMap of term and definition
+
+Tetris.jar uses the hash map in the game
+
+
+Random Classes For Reference:
+
+**Notice** Out of date, see github repos for up to date repos.
+
+
+public nameofclass{
+
+    String filename;
+    
+    public nameofclass(String filename){
+        this.filename = filename;
+    }
+    
+    public hashmap getHash(){
+        code
+    }
+}
+
+***************
+package base;
+
+import java.io.*;
+import java.util.HashMap;
+
+public class StudySet {
+
+    private BufferedReader r;
+
+    public StudySet(String fileName) {
+        try {
+            r = new BufferedReader(new FileReader(fileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public HashMap<String, String> getHashMap() {
+        HashMap<String, String> set = new HashMap<String, String>();
+
+        String line = "";
+        try {
+            line = r.readLine();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        for (int i = 0; line != null; i++) {
+            String[] entry = {};
+            try {
+                entry = r.readLine().split(":");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            set.put(entry[i], entry[i + 1]);
+        }
+
+        return set;
+    }
+}
+***************
+public static File[] filesEndingWith(String ending, File directory) {
+    File[] files = directory.listFiles(new FilenameFilter() {
+        public boolean accept(File dir, String name) {
+            return name.endsWith(ending);
+        }
+    });
+    
+    return files;
+}
+*********************
+
+
+Things to do when we have time:
+Game settings:
+Definition to term vs Term to definition - Bryan Needs to Ayush needs to (might be in args from the Launcher instead of in game) args[1]
+MAKE SURE THAT IT IS NOT CASE SENSITIVE - Bryan Done Ayush needs to
+MAKE SURE IT TELLS THEM WHAT THE CORRECT TERM IS - Bryan Done Ayush needs to
+
+Dashboard:
+Fancy material icons
+Seperate directories for games and study sets
+
+Put this right after main(String[] args):
+StudySet studySet = new StudySet(args[0]);
+
+**********
+LINKS:
+
+https://github.com/brianla0616
+
+https://file.io/qQikIz
+
+https://file.io/zkTPOx
+
+Tetris jar: 
+https://file.io/MEi2xG
+**********
+
+Key Points For Presentation:
+-Fun
+-Open Source/Customizable
+-Students can make their own games, easy as drag and drop
+-Edit lists within the Dashboard
+
+https://file.io/IsMpmw
